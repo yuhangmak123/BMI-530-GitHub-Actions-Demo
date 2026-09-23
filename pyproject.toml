@@ -1,0 +1,24 @@
+[project]
+name = "bmi-530-github-actions-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Yu Hang Mak", email = "yuhang.mak@stonybrook.edu" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+demo = "bmi_530_github_actions_demo.main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.15,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+    "ty>=0.0.83",
+]

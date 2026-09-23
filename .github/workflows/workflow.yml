@@ -1,0 +1,29 @@
+name: CI demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Lint and format
+        run: uv run ruff check .
+
+      - name: Type check
+        run: uv run ty check
+
+      - name: Unit testing
+        run: uv run pytest
+
+      - name: Print job status
+        run: echo "🍏 This job's status is ${{ job.status }}."
+
